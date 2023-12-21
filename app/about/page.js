@@ -20,7 +20,7 @@ import {
 import Avatar from "@/components/Avatar";
 import Circles from "@/components/Circles";
 //  data
-export const aboutData = [
+const aboutData = [
   {
     title: "skills",
     info: [
