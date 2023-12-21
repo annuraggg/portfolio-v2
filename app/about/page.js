@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 "use client";
 import React, { useEffect } from "react"; // icons
 import {
@@ -133,14 +134,14 @@ const About = () => {
             exit="hidden"
             className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
           >
-            Hello, I&apos;m Anurag Sawant, a passionate web developer
-            with a penchant for creating exceptional online experiences. At{" "}
-            {age} years old, I am currently pursuing a Bachelor&apos;s degree in
-            Information Technology and hold a Diploma in IT. From a young age,
-            I&apos;ve been captivated by the world of coding and have spent the
-            past years honing my skills in web development. It&apos;s a
-            journey that has allowed me to explore the limitless possibilities
-            of the digital realm and continuously expand my knowledge.
+            Hello, I&apos;m Anurag Sawant, a passionate web developer with a
+            penchant for creating exceptional online experiences. At {age} years
+            old, I am currently pursuing a Bachelor&apos;s degree in Information
+            Technology and hold a Diploma in IT. From a young age, I&apos;ve
+            been captivated by the world of coding and have spent the past years
+            honing my skills in web development. It&apos;s a journey that has
+            allowed me to explore the limitless possibilities of the digital
+            realm and continuously expand my knowledge.
           </motion.p>
           <motion.div
             variants={fadeIn("right", 0.6)}
