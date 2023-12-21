@@ -12,7 +12,7 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>) {
+}) {
   const pathname = usePathname();
   console.log(pathname);
   return (
