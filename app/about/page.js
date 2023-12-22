@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
 "use client";
 import React, { useEffect } from "react"; // icons
+import Image from "next/image";
 import {
   FaHtml5,
   FaCss3,
@@ -19,6 +20,7 @@ import {
 
 import Avatar from "@/components/Avatar";
 import Circles from "@/components/Circles";
+import BallCanvas from "@/components/Ball";
 //  data
 const aboutData = [
   {
@@ -88,6 +90,89 @@ const aboutData = [
         stage: "2006",
       },
     ],
+  },
+];
+
+const techStack = [
+  {
+    name: "HTML",
+    icon: "/stack/html.png",
+  },
+  {
+    name: "CSS",
+    icon: "/stack/css.png",
+  },
+  {
+    name: "JavaScript",
+    icon: "/stack/js.png",
+  },
+  {
+    name: "MongoDB",
+    icon: "/stack/mongo.png",
+  },
+  {
+    name: "Express",
+    icon: "/stack/express.png",
+  },
+  {
+    name: "React",
+    icon: "/stack/react.png",
+  },
+  {
+    name: "Node",
+    icon: "/stack/nodejs.png",
+  },
+  {
+    name: "Redux",
+    icon: "/stack/redux.png",
+  },
+  {
+    name: "TypeScript",
+    icon: "/stack/ts.png",
+  },
+  {
+    name: "NextJS",
+    icon: "/stack/nextjs.png",
+  },
+  {
+    name: "Git",
+    icon: "/stack/git.png",
+  },
+  {
+    name: "Figma",
+    icon: "/stack/figma.png",
+  },
+  {
+    name: "AWS",
+    icon: "/stack/aws.png",
+  },
+  {
+    name: "Firebase",
+    icon: "/stack/firebase.png",
+  },
+  {
+    name: "Tailwind",
+    icon: "/stack/tailwind.png",
+  },
+  {
+    name: "Chakra",
+    icon: "/stack/chakra.png",
+  },
+  {
+    name: "MySQL",
+    icon: "/stack/mysql.png",
+  },
+  {
+    name: "php",
+    icon: "/stack/php.svg",
+  },
+  {
+    name: "Python",
+    icon: "/stack/python.png",
+  },
+  {
+    name: "Flask",
+    icon: "/stack/flask.png",
   },
 ];
 
@@ -186,27 +271,25 @@ const About = () => {
             })}
           </div>
           <div className="py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start">
-            {aboutData[index].info.map((item, itemIndex) => {
-              return (
-                <div
-                  key={itemIndex}
-                  className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60"
-                >
-                  <div className="font-light mb-2 md:mb-0">{item.title}</div>
-                  <div className="hidden md:flex">-</div>
-                  <div>{item.stage}</div>4
-                  <div className="flex gap-x-4">
-                    {item.icons?.map((icon, iconIndex) => {
-                      return (
-                        <div className="text-2xl" key={iconIndex}>
-                          {icon}
-                        </div>
-                      );
-                    })}
-                  </div>
+            {index === 0 ? (
+              <div className="flex align-middle justify-center">
+                <div className="grid grid-cols-4 grid-flow-row gap-9 justify-items-center align-middle justify-center">
+                  {techStack.map((item, itemIndex) => {
+                    return (
+                      <div className="w-[70px] h-[70px]">
+                        <Image
+                          src={item.icon}
+                          alt={item.name}
+                          width={40}
+                          height={40}
+                          key={itemIndex}
+                        />
+                      </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
+              </div>
+            ) : null}
           </div>
         </motion.div>
       </div>

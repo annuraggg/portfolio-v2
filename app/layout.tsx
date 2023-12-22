@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import Transition from "@/components/Transition";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,17 +15,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  console.log(pathname);
+  const [routing, setRouting] = useState(false);
+  const [prevPath, setPrevPath] = useState("/");
+
+  useEffect(() => {
+    if (prevPath !== pathname) {
+      setRouting(true);
+    }
+  }, [pathname, prevPath]);
+
+  useEffect(() => {
+    if (routing) {
+      setPrevPath(pathname);
+      const timeout = setTimeout(() => {
+        setRouting(false);
+      }, 1200);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [pathname, routing]);
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <Layout>
-          <AnimatePresence mode="wait">
-            <motion.div key={pathname} className="h-full">
-              <Transition />
-              {children}
-            </motion.div>
-          </AnimatePresence>
+          {routing && <Transition />}
+          {children}
         </Layout>
       </body>
     </html>
