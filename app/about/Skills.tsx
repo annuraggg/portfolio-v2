@@ -1,13 +1,13 @@
 import { skillsData } from "@/components/DataComponent";
 import { motion } from "framer-motion";
 
-const Skills = ({ techStack }) => {
+const Skills = () => {
   const fadeInAnimationVariants = {
     initial: {
       opacity: 0,
       y: 100,
     },
-    animate: (index) => ({
+    animate: (index: any) => ({
       opacity: 1,
       y: 0,
       transition: {
