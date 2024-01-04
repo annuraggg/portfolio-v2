@@ -31,14 +31,18 @@ export const getErrorMessage = (error: unknown): string => {
   return message;
 };
 
-console.log(process.env.NEXT_PUBLIC_RESEND_API_KEY);
-const resend = new Resend("re_P8oQpB9n_BNwM2CMbizL4Se833xUJ2DwZ");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmail = async (formData: FormData) => {
   const name = formData.get("name");
   const senderEmail = formData.get("senderEmail");
   const Subject = formData.get("Subject");
   const message = formData.get("message");
+
+  console.log(name);
+  console.log(senderEmail);
+  console.log(Subject);
+  console.log(message);
 
   // simple server-side validation
   if (!validateString(senderEmail, 500)) {
@@ -72,8 +76,8 @@ export const sendEmail = async (formData: FormData) => {
       react: React.createElement(ContactFormEmail, {
         message: message,
         senderEmail: senderEmail,
-        Subject: Subject,
         name: name,
+        key: "email",
       }),
     });
   } catch (error: unknown) {
